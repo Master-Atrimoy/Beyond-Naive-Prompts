@@ -1,7 +1,6 @@
 # 🧠 Prompt Engineering Techniques — Beyond Toy Examples
 
-> * [ ] 
->
+
 > ⚙️ Runs 100% locally via Ollama + Mistral — no APIs, no keys, no cloud dependencies.
 
 ---
