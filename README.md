@@ -1,5 +1,6 @@
-# 🧠 Prompt Engineering Techniques — Beyond Toy Examples
+# 🧠 Beyond Naive Prompts
 
+***Prompt Engineering Techniques — Beyond Toy Examples***
 
 > ⚙️ Runs 100% locally via Ollama + Mistral — no APIs, no keys, no cloud dependencies.
 
@@ -19,9 +20,59 @@ This repo focuses on something else:
 → **How to control model behavior**, not just get a correct answer once
 → **Why a technique works**, not just how to apply it
 
+Most prompt engineering content focuses on toy examples like basic summarization or stylistic generation. This repository focuses on production reality:
+
+* 🛠️ **Where prompts break:** Managing ambiguity, unexpected token patterns, and failure modes.
+* 🎛️ **Determinism & Control:** Forcing local models to respect hard operational constraints.
+* 📊 **Quantifiable Evaluation:** Moving past "vibes" by mathematically scoring outputs locally.
+
 ---
 
-## What's inside
+## 📁 Repository Directory
+
+| Module                                                             | Purpose                                                                                | Core Stack                         |
+| :----------------------------------------------------------------- | :------------------------------------------------------------------------------------- | :--------------------------------- |
+| **[`01_prompt_techniques.ipynb`](./prompt_techniques.ipynb)** | 8 applied core prompting patterns using a "Naive vs. Engineered" framework.            | `mistral`                        |
+| **[`02_prompt_diff.ipynb`](./02_prompt_diff.ipynb)**          | Automated testing matrix to measure lexical and semantic drift across prompt versions. | `mistral` + `nomic-embed-text` |
+| **`03_eval_harness.ipynb`**                                | *[Coming Soon]* Programmatic LLM-as-a-Judge scoring.                                 | `gemma3` / `llama3.1`          |
+| **`04_rag_basics.ipynb`**                                  | *[Coming Soon]* Local contextual retrieval architecture.                             | Local Vector DB                    |
+
+---
+
+## ⚡ Quickstart
+
+### 1. Install & Set Up Ollama
+
+Download and install Ollama from [ollama.com](https://ollama.com). Pull both the generation model and the text-embedding engine:
+
+```bash
+ollama pull mistral
+ollama pull nomic-embed-text
+```
+
+You can also use: **ollama serve**
+
+### 2. Prepare Environment
+
+Install the core playground dependencies, including `rich` for colorized console layouts:
+
+```
+pip install requests jupyter rich
+```
+
+### 3. Launch
+
+```
+jupyter notebook
+```
+
+---
+
+## 📓 Module Deep Dives
+
+### Module 01: Core Prompting Techniques (`01_prompt_techniques.ipynb`)
+
+This notebook analyzes exactly *why* a pattern works by directly contrasting a standard
 
 | # | Technique                    | Task                                                       |
 | - | ---------------------------- | ---------------------------------------------------------- |
@@ -42,22 +93,7 @@ Each section includes:
 
 ---
 
-## Quickstart
-
-```bash
-# 1. Install Ollama — https://ollama.com
-ollama pull mistral
-
-# 2. Install dependencies
-pip install requests jupyter
-
-# 3. Run the notebook
-jupyter notebook prompt_techniques.ipynb
-```
-
----
-
-## Why these tasks?
+### Why these tasks?
 
 Most examples don't stress the model enough to justify the technique.
 
@@ -74,9 +110,24 @@ These do.
 
 ---
 
+### Module 02: Prompt Diff & Semantic Drift (`02_prompt_diff.ipynb`)
+
+When you tweak a prompt template, running it against one test case is an engineering trap. This module builds a testing harness to run prompt updates against an entire evaluation dataset simultaneously.
+
+* **Lexical Delta Mapping:** Leverages Python’s native `difflib` to track absolute textual insertions and deletions line by line.
+* **Mathematical Semantic Drift:** Vectors outputs through a local embedding model and computes normalized **Angular Distance** derived from Cosine Similarity:
+
+$$
+\text{Semantic Drift} = \frac{\arccos(\text{Cosine Similarity})}{\pi}
+$$
+
+* **Interactive Visualization Table:** Automatically color-codes outputs inside the cell and classifies changes ranging from cosmetic formatting tweaks to complete meaning splits.
+
+---
+
 ## Roadmap
 
-* [ ] `02_prompt_diff.ipynb` — measure semantic shift between prompt variants
+* [X] `02_prompt_diff.ipynb` — measure semantic shift between prompt variants
 * [ ] `03_eval_harness.ipynb` — LLM-as-judge scoring
 * [ ] `04_rag_basics.ipynb` — local RAG over personal documents
 
