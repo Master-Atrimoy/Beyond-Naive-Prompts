@@ -30,12 +30,12 @@ Most prompt engineering content focuses on toy examples like basic summarization
 
 ## 📁 Repository Directory
 
-| Module                                                             | Purpose                                                                                | Core Stack                         |
-| :----------------------------------------------------------------- | :------------------------------------------------------------------------------------- | :--------------------------------- |
-| **[`01_prompt_techniques.ipynb`](./prompt_techniques.ipynb)** | 8 applied core prompting patterns using a "Naive vs. Engineered" framework.            | `mistral`                        |
-| **[`02_prompt_diff.ipynb`](./02_prompt_diff.ipynb)**          | Automated testing matrix to measure lexical and semantic drift across prompt versions. | `mistral` + `nomic-embed-text` |
-| **`03_eval_harness.ipynb`**                                | *[Coming Soon]* Programmatic LLM-as-a-Judge scoring.                                 | `gemma3` / `llama3.1`          |
-| **`04_rag_basics.ipynb`**                                  | *[Coming Soon]* Local contextual retrieval architecture.                             | Local Vector DB                    |
+| Module                                                                | Purpose                                                                                | Core Stack                         |
+| :-------------------------------------------------------------------- | :------------------------------------------------------------------------------------- | :--------------------------------- |
+| **[`01_prompt_techniques.ipynb`](./01_prompt_techniques.ipynb)** | 8 applied core prompting patterns using a "Naive vs. Engineered" framework.            | `mistral`                        |
+| **[`02_prompt_diff.ipynb`](./02_prompt_diff.ipynb)**             | Automated testing matrix to measure lexical and semantic drift across prompt versions. | `mistral` + `nomic-embed-text` |
+| **`03_eval_harness.ipynb`**                                   | *[Coming Soon]* Programmatic LLM-as-a-Judge scoring.                                 | `gemma3` / `llama3.1`          |
+| **`04_rag_basics.ipynb`**                                     | *[Coming Soon]* Local contextual retrieval architecture.                             | Local Vector DB                    |
 
 ---
 
