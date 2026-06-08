@@ -30,13 +30,12 @@ Most prompt engineering content focuses on toy examples like basic summarization
 
 ## 📁 Repository Directory
 
-| Module                                                                | Purpose                                                                                | Core Stack                         |
-| :-------------------------------------------------------------------- | :------------------------------------------------------------------------------------- | :--------------------------------- |
-| **[`01_prompt_techniques.ipynb`](./01_prompt_techniques.ipynb)** | 8 applied core prompting patterns using a "Naive vs. Engineered" framework.            | `mistral`                        |
-| **[`02_prompt_diff.ipynb`](./02_prompt_diff.ipynb)**             | Automated testing matrix to measure lexical and semantic drift across prompt versions. | `mistral` + `nomic-embed-text` |
-| **`03_eval_harness.ipynb`**                                   | *[Coming Soon]* Programmatic LLM-as-a-Judge scoring.                                 | `gemma3` / `llama3.1`          |
-| **`04_rag_basics.ipynb`**                                     | *[Coming Soon]* Local contextual retrieval architecture.                             | Local Vector DB                    |
-
+| Module | Purpose | Core Stack |
+| :--- | :--- | :--- |
+| **[`01_prompt_techniques.ipynb`](./01_prompt_techniques.ipynb)** | 8 applied core prompting patterns using a "Naive vs. Engineered" framework. | `mistral` |
+| **[`02_prompt_diff.ipynb`](./02_prompt_diff.ipynb)** | Automated testing matrix to measure lexical and semantic drift across prompt versions. | `mistral` + `nomic-embed-text` |
+| **[`03_eval_harness.ipynb`](./03_eval_harness.ipynb)** | Programmatic LLM-as-a-Judge scoring with strict JSON verification contracts. | `gemma3` / `llama3.1` |
+| **`04_rag_basics.ipynb`** | *[Coming Soon]* Local chunking, vector embeddings, and semantic injection architecture. | `nomic-embed-text` + Local Vector Vector Space |
 ---
 
 ## ⚡ Quickstart
@@ -125,12 +124,20 @@ $$
 
 ---
 
+### Module 03: Programmatic Evaluation Harness (`03_eval_harness.ipynb`)
+
+Manual testing falls apart as production volume scales. This module replaces "vibes-based prompt iteration" with an objective QA auditing pipeline using a local model as an evaluation judge.
+
+* **Deterministic JSON Formatting:** Leverages Ollama’s structured schema constraint API alongside robust regex isolation filters to guarantee parse-safe dictionary payloads.
+* **Multi-Dimensional Rubrics:** Grades system outputs out of 5 across rigid, isolated criteria for *Completeness* and *Conciseness*.
+* **Aggregated Operational KPIs:** Automatically computes aggregate performance variance across distinct infrastructure engineering failure modes, applying a strict conditional Pass/Fail operational status threshold flag.
+---
+
 ## Roadmap
-
-* [X] `02_prompt_diff.ipynb` — measure semantic shift between prompt variants
-* [ ] `03_eval_harness.ipynb` — LLM-as-judge scoring
-* [ ] `04_rag_basics.ipynb` — local RAG over personal documents
-
+* [x] 01_prompt_techniques.ipynb — 8 applied production prompting patterns
+* [x] 02_prompt_diff.ipynb — measure semantic shift between prompt variants
+* [x] 03_eval_harness.ipynb — programmatic LLM-as-judge scoring matrices
+* [ ] 04_rag_basics.ipynb — local RAG over documentation datasets
 ---
 
 ## Philosophy
